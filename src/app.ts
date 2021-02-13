@@ -20,6 +20,8 @@ createConnection()
 import indexRouter from "./router/index";
 app.use("/", indexRouter);
 
+import introduceRouter from "./router/introduce";
+app.use("/intro", introduceRouter);
 app.listen(8088, ()=>{
     console.log("SERVER RUN")
 })
