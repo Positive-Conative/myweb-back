@@ -1,5 +1,9 @@
 export interface userDto{
-    id?:number;
-    pw:string;
-    notice?:string;
+    // id?:number;
+    user_email:string;
+    password:string;
+    name:string;
+    address?:string;
+    gender: boolean;
+    age?: number;
 }

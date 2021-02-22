@@ -1,13 +1,13 @@
 import express, {Request, Response, NextFunction} from 'express'
 import "reflect-metadata";
-import {User} from "../entity/User";
+import {Users} from "../entity/Users";
 import {Board} from "../entity/Board";
 import {getConnection} from "typeorm";
 const indexRouter = express.Router();
 
-import {indexMain} from '../controller/index/indexMainController';
+import {indexMain, test} from '../controller/index/indexMainController';
 indexRouter.post('/', indexMain)
-
+indexRouter.get('/tester', test)
 indexRouter.get('/active_record', async (req:Request, res:Response, next)=>{
     // const timber = await User.findByName(1, "Timber");
     // console.log(timber);
@@ -30,5 +30,6 @@ indexRouter.get('/data_mapper', async (req:Request, res:Response, next:NextFunct
     await userRepository.save(user);
     res.send("OK!!!")
 })
+
 
 export default indexRouter;

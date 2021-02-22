@@ -1,6 +1,7 @@
 import {getConnection} from "typeorm";
-import {User} from "../entity/User";
+import {Users} from "../entity/Users";
 import { userDto } from "../interface/userDto";
+import { boardRepo } from "../repository/boardRepo";
 // export default class UserService() {
 //   async addUser(User){
 //     const connection = getConnection();
@@ -21,11 +22,18 @@ function addUser(userDto:userDto){
   // return "ok";
 
   const connection = getConnection();
-  const userRepository = connection.getRepository(User);
+  const userRepository = connection.getRepository(Users);
   const user = userDto;
   userRepository.save(user);
   console.log("FDAS1")
   return "ok";
 }
 
-export {addUser}
+async function findUser(){
+  const connection = getConnection();
+  const userRepository2 = connection.getCustomRepository(boardRepo);
+  const timber = await userRepository2.findByName("Timber", "Saw");
+  console.log(timber)
+  return timber;
+}
+export {addUser, findUser}

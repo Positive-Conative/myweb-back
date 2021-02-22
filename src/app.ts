@@ -22,7 +22,7 @@ app.use("/", indexRouter);
 
 import introduceRouter from "./router/introduce";
 app.use("/intro", introduceRouter);
-app.listen(8088, ()=>{
+app.listen(8082, ()=>{
     console.log("SERVER RUN")
 })
 

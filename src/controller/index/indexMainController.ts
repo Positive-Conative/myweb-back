@@ -1,6 +1,6 @@
 import {Request, Response, NextFunction} from 'express'
 import { userDto } from "../../interface/userDto";
-import { addUser } from "../../service/UserService";
+import { addUser, findUser } from "../../service/UserService";
 
 function indexMain(req:Request, res:Response ){ 
     let bodyData : userDto = req.body
@@ -9,4 +9,7 @@ function indexMain(req:Request, res:Response ){
     // var hello : string = req.body.id
     // res.json({"id":hello})
 }
-export {indexMain}
+function test(req:Request, res:Response){
+    findUser()
+}
+export {indexMain, test}
