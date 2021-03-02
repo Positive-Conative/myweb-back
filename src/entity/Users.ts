@@ -37,7 +37,7 @@ export class Users{
         (type)=>Guest_Books,
         (guest_books)=>guest_books.user
     )
-    guest_books!:Guest_Books[];
+    guest_books:Guest_Books[];
 
     // static findByName(id: number, pw: string) {
     //     return this.createQueryBuilder("User")

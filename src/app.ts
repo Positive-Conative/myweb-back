@@ -24,7 +24,7 @@ import introduceRouter from "./router/introduce";
 app.use("/intro", introduceRouter);
 
 import guestBookRouter from "./router/guestBook";
-app.use("/guest", guestBookRouter);
+app.use("/guestbook", guestBookRouter);
 
 
 
