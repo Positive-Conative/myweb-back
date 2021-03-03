@@ -7,7 +7,7 @@ export class guestBooksRepo extends Repository<Guest_Books> {
     findAll(){
         return this
         .createQueryBuilder("guest_books")
-        .leftJoinAndSelect('guest_books.user', 'asdf')
+        .leftJoinAndSelect('guest_books.user', 'u')
         .getOne();
     }
 
@@ -15,7 +15,7 @@ export class guestBooksRepo extends Repository<Guest_Books> {
     findById(guest_id: number) {
         return this //connection
             .createQueryBuilder("guest_books")
-            .leftJoinAndSelect('guest_books.user', 'asdf')
+            .leftJoinAndSelect('guest_books.user', 'u')
             .where("guest_books.guest_id = :guest_id", { guest_id })
             .getOneOrFail();
     }

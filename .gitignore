@@ -6,6 +6,7 @@ ormconfig.json
 
 ### Node ###
 # Logs
+log
 logs
 *.log
 npm-debug.log*

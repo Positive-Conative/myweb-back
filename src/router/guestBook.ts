@@ -1,8 +1,9 @@
+import * as guestBookController from '../controller/guestBookController';
 import express from 'express'
 const guestBookRouter = express.Router();
 
-import {guestBookMain} from '../controller/guestBookController';
-guestBookRouter.get('/main', guestBookMain)
+guestBookRouter.get('/main', guestBookController.guestBookMain)
+guestBookRouter.get('/detail', guestBookController.guestBookDetail)
 
 // guestBookRouter.get('/main', guestBookMain)
 
