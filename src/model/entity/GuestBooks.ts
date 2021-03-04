@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, ManyToOne} from "typeorm";
-import { Users } from "./Users";
+import { Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, ManyToOne, OneToMany} from "typeorm";
+import { Guest_Coments } from "./Guest_Coments";
 
 @Entity("Guest_Books")
 export class Guest_Books{
@@ -12,13 +12,12 @@ export class Guest_Books{
     @Column({length:30})
     title: string;
 
-    @Column({length:25, nullable: true})
+    @Column({length:100})
     content: string;
 
-    @ManyToOne(
-        (type)=>Users,
-        (users)=>users.guest_books,
-        {nullable:false}
+    @OneToMany(
+        (type)=>Guest_Coments,
+        (guest_comments)=>guest_comments.guest_books
     )
-    user: Users
+    guest_comments:Guest_Coments[];
 }

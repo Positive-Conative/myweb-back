@@ -1,5 +1,8 @@
 import { Entity, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany} from "typeorm";
 import { Guest_Books } from "./GuestBooks";
+import { Board_Contents } from "./Board_Contents";
+import { Board_Coments } from "./Board_Coments";
+import { Question_Boards } from "./Question_Boards";
 
 @Entity("Users")
 export class Users{
@@ -37,11 +40,22 @@ export class Users{
     update_time: Date;
 
     @OneToMany(
-        (type)=>Guest_Books,
-        (guest_books)=>guest_books.user
+        (type)=>Board_Contents,
+        (board_contents)=>board_contents.user
     )
-    guest_books:Guest_Books[];
+    board_contents:Board_Contents[];
 
+    @OneToMany(
+        (type)=>Board_Coments,
+        (board_coments)=>board_coments.user
+    )
+    board_coments:Board_Coments[];
+
+    @OneToMany(
+        (type)=>Question_Boards,
+        (question_boards)=>question_boards.user
+    )
+    question_boards:Question_Boards[];
     // static findByName(id: number, pw: string) {
     //     return this.createQueryBuilder("User")
     //         .where("User.id = :id", { id })
