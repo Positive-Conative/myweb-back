@@ -1,7 +1,7 @@
 import express, {Request, Response, NextFunction} from 'express'
 import "reflect-metadata";
-import {Users} from "../entity/Users";
-import {Board} from "../entity/Board";
+import {Users} from "../model/entity/Users";
+import {Board} from "../model/entity/Board";
 import {getConnection} from "typeorm";
 const indexRouter = express.Router();
 

@@ -15,6 +15,9 @@ export class Users{
     @Column({length: 25})
     name: string;
 
+    @Column({length: 25})
+    nickname: string;
+
     @Column({
         length: 50,
         nullable: true

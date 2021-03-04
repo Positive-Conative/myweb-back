@@ -1,23 +1,26 @@
 import {getConnection} from "typeorm";
-import { guestBooksRepo } from "../repository/guestBookRepo";
+import { guestBooksRepo } from "../model/repository/guestBookRepo";
 
-
+//전체 출력
 async function findAll(){
   const connection = getConnection();
   const guestRepoData = connection.getCustomRepository(guestBooksRepo);
-  const db_data = await guestRepoData.findById(1);
+  const db_data = await guestRepoData.findAll();
   // console.log(timber.user.email)
   return db_data;
 }
 
-async function findOne(){
+//
+async function findDetail(gid : number){
   const connection = getConnection();
-  const userRepository2 = connection.getCustomRepository(guestBooksRepo);
-  const timber = await userRepository2.findById(1);
-  console.log(timber)
+  const guestRepoData = connection.getCustomRepository(guestBooksRepo);
+  const db_data = await guestRepoData.findById(gid);
   // console.log(timber.user.email)
-  return timber;
+  return db_data;
 }
 
 
-export {findOne, findAll}
+export {
+  findAll,
+  findDetail,
+}

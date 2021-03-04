@@ -1,7 +1,7 @@
 import {getConnection} from "typeorm";
-import {Users} from "../entity/Users";
+import {Users} from "../model/entity/Users";
 import { userDto } from "../interface/userDto";
-import { boardRepo } from "../repository/boardRepo";
+import { boardRepo } from "../model/repository/boardRepo";
 // export default class UserService() {
 //   async addUser(User){
 //     const connection = getConnection();

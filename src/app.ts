@@ -26,8 +26,6 @@ app.use("/intro", introduceRouter);
 import guestBookRouter from "./router/guestBook";
 app.use("/guestbook", guestBookRouter);
 
-
-
 app.listen(8082, ()=>{
     console.log("SERVER RUN")
 })
