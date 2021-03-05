@@ -1,23 +1,45 @@
-import {getConnection} from "typeorm";
 import { boardGroupRepo } from "../model/repository/boardGroupRepo";
 import { boardGroupDto } from "../interface/boardGroupDto";
 import { logger } from "../config/logger";
 
 //Group 전체 출력
 async function findAll_Group(){
-  const connection = getConnection();
-  const boardRepoData = connection.getCustomRepository(boardGroupRepo);
-  const db_data = await boardRepoData.findAll();
-  // console.log(timber.user.email)
-  return db_data;
+  const bgr = new boardGroupRepo;
+  try{
+    const db_data = await bgr.findAll()
+    return db_data;
+  }catch(err){
+    logger.error({
+      label:"[boardService.ts - findAll_Group]",
+      message: `\n\t└ err : `+ err
+    })
+    return `Database Select ERR.`;
+  }
 }
 
-//Group 추가하기
+//Group 추가
 async function create_Group(bodyData:boardGroupDto){
   const bgr = new boardGroupRepo;
   try{
-    await bgr.saveGroup(bodyData)
+    await bgr.insertGroup(bodyData)
     return "성공적으로 추가되었습니다.";
+  }catch(err){
+    logger.error({
+      label:"[boardService.ts - create_Group]",
+      message: `\n\t└ err : `+ err
+    })
+    return `Database Insert ERR.`;
+  }
+  // console.log(timber.user.email)
+}
+
+//Group 수정
+async function modify_Group(bodyData:boardGroupDto){
+  const bgr = new boardGroupRepo;
+  try{
+    var db_result = await bgr.modifyGroup(bodyData)
+    if(db_result.raw.affectedRows) return "성공적으로 수정되었습니다.";
+    else return "수정된 내역이 없습니다.";
   }catch(err){
     logger.error({
       label:"[boardService.ts - create_Group]",
@@ -30,5 +52,6 @@ async function create_Group(bodyData:boardGroupDto){
 
 export {
   findAll_Group,
-  create_Group
+  create_Group,
+  modify_Group
 }

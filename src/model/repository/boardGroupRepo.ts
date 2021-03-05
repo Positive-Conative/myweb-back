@@ -6,17 +6,26 @@ import { boardGroupDto } from "../../interface/boardGroupDto";
 export class boardGroupRepo extends Repository<Board_Groups> {
        
     findAll() {
-        return this
+        return getRepository(Board_Groups)
             .createQueryBuilder("bg")
             .getMany();
     }
 
-    saveGroup(bodyData:boardGroupDto) {
+    insertGroup(bodyData:boardGroupDto) {
         return getRepository(Board_Groups)
             .createQueryBuilder()
             .insert()
             .into(Board_Groups)
             .values(bodyData)
+            .execute()
+    }
+
+    modifyGroup(bodyData:boardGroupDto) {
+        return getRepository(Board_Groups)
+            .createQueryBuilder()
+            .update(Board_Groups)
+            .set(bodyData)
+            .where("group_id = :gid", {gid: bodyData.group_id})
             .execute()
     }
 }

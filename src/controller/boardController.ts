@@ -3,7 +3,7 @@ import * as boardService from "../service/boardService";
 import { logger } from "../config/logger";
 import { boardGroupDto } from "../interface/boardGroupDto";
 
-//Detail Page
+//Main Page(전체 출력)
 function boardGroupMain(req:Request, res:Response){
     // let guest_id : number = Number(req.query.gid); //check gid
 
@@ -17,22 +17,22 @@ function boardGroupMain(req:Request, res:Response){
 
     boardService.findAll_Group()
         .then(
-            (result)=>{
+            (result: any)=>{
                 res.json(result)
             }
         )//end then
         .catch(
-            (err)=>{
-                logger.info({
-                    label:"[Board Group]",
-                    message: `err : `+ err
+            (err: any)=>{
+                logger.error({
+                    label:"[BoardController.ts - boardGroupMain]",
+                    message: `\n\t└ err : `+ err
                 })
                 res.json({"message" : err})
             }
         )//end catch
 }
 
-//Detail Page
+//Insert Page(데이터 추가)
 function boardGroupCreate(req:Request, res:Response){
     let bodyData : boardGroupDto ={
         "name":req.body.name,
@@ -41,12 +41,12 @@ function boardGroupCreate(req:Request, res:Response){
     }
     boardService.create_Group(bodyData)
         .then(
-            (result)=>{
+            (result: any)=>{
                 res.json({"message":result})
             }
         )//end then
         .catch(
-            (err)=>{
+            (err: any)=>{
                 logger.error({
                     label:"[BoardController.ts - boardGroupCreate]",
                     message: `\n\t└ err : `+ err
@@ -55,7 +55,34 @@ function boardGroupCreate(req:Request, res:Response){
             }
         )//end catch
 }
+
+//Insert Page(데이터 추가)
+function boardGroupModify(req:Request, res:Response){
+    let bodyData : boardGroupDto ={
+        "group_id"!:req.body.group_id,
+        "name":req.body.name,
+        "description":req.body.description,
+        "authority":req.body.authority
+    }
+    boardService.modify_Group(bodyData)
+        .then(
+            (result: any)=>{
+                res.json({"message":result})
+            }
+        )//end then
+        .catch(
+            (err: any)=>{
+                logger.error({
+                    label:"[BoardController.ts - boardGroupModify]",
+                    message: `\n\t└ err : `+ err
+                })
+                res.json({"message" : err})
+            }
+        )//end catch
+}
+
 export{
     boardGroupMain,
-    boardGroupCreate
+    boardGroupCreate,
+    boardGroupModify
 }
