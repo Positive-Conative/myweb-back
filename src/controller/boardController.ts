@@ -39,18 +39,17 @@ function boardGroupCreate(req:Request, res:Response){
         "description":req.body.description,
         "authority":req.body.authority
     }
-    console.log(bodyData);
     boardService.create_Group(bodyData)
         .then(
             (result)=>{
-                res.json(result)
+                res.json({"message":result})
             }
         )//end then
         .catch(
             (err)=>{
-                logger.info({
-                    label:"[Board Group]",
-                    message: `err : `+ err
+                logger.error({
+                    label:"[BoardController.ts - boardGroupCreate]",
+                    message: `\n\t└ err : `+ err
                 })
                 res.json({"message" : err})
             }

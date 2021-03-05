@@ -1,4 +1,4 @@
-import {EntityRepository, Repository} from "typeorm";
+import {EntityRepository, Repository, getRepository} from "typeorm";
 import {Board_Groups} from "../entity/Board_Groups";
 import { boardGroupDto } from "../../interface/boardGroupDto";
 
@@ -12,7 +12,7 @@ export class boardGroupRepo extends Repository<Board_Groups> {
     }
 
     saveGroup(bodyData:boardGroupDto) {
-        return this
+        return getRepository(Board_Groups)
             .createQueryBuilder()
             .insert()
             .into(Board_Groups)
