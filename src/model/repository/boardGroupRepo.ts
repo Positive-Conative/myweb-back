@@ -28,4 +28,13 @@ export class boardGroupRepo extends Repository<Board_Groups> {
             .where("group_id = :gid", {gid: bodyData.group_id})
             .execute()
     }
+
+    removeGroup(group_id:number) {
+        return getRepository(Board_Groups)
+            .createQueryBuilder()
+            .delete()
+            .from(Board_Groups)
+            .where("group_id = :gid", {gid: group_id})
+            .execute()
+    }
 }

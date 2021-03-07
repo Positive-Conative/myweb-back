@@ -11,6 +11,9 @@ boardRouter.post('/group/insert', boardController.boardGroupCreate)
 //Board Group Update
 boardRouter.post('/group/update', boardController.boardGroupModify)
 
+//Board Group Delete
+boardRouter.post('/group/delete', boardController.boardGroupRemove)
+
 // boardRouter.get('/detail', boardController.boardGroupMain)
 
 // guestBookRouter.get('/main', guestBookMain)

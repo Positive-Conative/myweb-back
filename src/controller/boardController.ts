@@ -56,7 +56,7 @@ function boardGroupCreate(req:Request, res:Response){
         )//end catch
 }
 
-//Insert Page(데이터 추가)
+//Update Page(데이터 수정)
 function boardGroupModify(req:Request, res:Response){
     let bodyData : boardGroupDto ={
         "group_id"!:req.body.group_id,
@@ -81,8 +81,36 @@ function boardGroupModify(req:Request, res:Response){
         )//end catch
 }
 
+//Delete Page(데이터 삭제)
+function boardGroupRemove(req:Request, res:Response){
+    let guest_id : number = Number(req.body.group_id); //check gid
+    if(isNaN(guest_id)){    // 숫자 타입 체크
+        logger.error({
+            label:"[BoardController.ts - boardGroupRemove]",
+            message: `\n\t└ err : `+ 'guest_id값이 숫자가 아님.'
+        })
+        res.json({"message" : "Parameter ERR!"})
+    }//end if
+
+    boardService.remove_Group(guest_id)
+        .then(
+            (result: any)=>{
+                res.json({"message":result})
+            }
+        )//end then
+        .catch(
+            (err: any)=>{
+                logger.error({
+                    label:"[BoardController.ts - boardGroupModify]",
+                    message: `\n\t└ err : `+ err
+                })
+                res.json({"message" : err})
+            }
+        )//end catch
+}
 export{
     boardGroupMain,
     boardGroupCreate,
-    boardGroupModify
+    boardGroupModify,
+    boardGroupRemove
 }

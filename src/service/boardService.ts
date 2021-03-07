@@ -50,8 +50,26 @@ async function modify_Group(bodyData:boardGroupDto){
   // console.log(timber.user.email)
 }
 
+//Group 삭제
+async function remove_Group(guest_id:number){
+  const bgr = new boardGroupRepo;
+  try{
+    var db_result = await bgr.removeGroup(guest_id)
+    if(db_result.raw.affectedRows) return "성공적으로 삭제되었습니다.";
+    else return "삭제된 내역이 없습니다.";
+  }catch(err){
+    logger.error({
+      label:"[boardService.ts - remove_Group]",
+      message: `\n\t└ err : `+ err
+    })
+    return `Database Insert ERR.`;
+  }
+  // console.log(timber.user.email)
+}
+
 export {
   findAll_Group,
   create_Group,
-  modify_Group
+  modify_Group,
+  remove_Group
 }
