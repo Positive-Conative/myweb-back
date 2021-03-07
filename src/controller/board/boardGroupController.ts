@@ -1,7 +1,7 @@
 import {Request, Response, NextFunction} from 'express'
-import * as boardService from "../service/boardService";
-import { logger } from "../config/logger";
-import { boardGroupDto } from "../interface/boardGroupDto";
+import * as boardService from "../../service/boardService";
+import { logger } from "../../config/logger";
+import { boardGroupDto } from "../../interface/boardGroupDto";
 
 //Main Page(전체 출력)
 function boardGroupMain(req:Request, res:Response){

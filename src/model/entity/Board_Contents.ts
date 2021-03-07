@@ -35,10 +35,10 @@ export class Board_Contents{
     @Column({length: 128, nullable: true})
     image_src: string;
 
-    @Column()
+    @Column({default: 0})
     hit: number;
 
-    @Column()
+    @Column({default: 0})
     like: number;
 
     @OneToMany(
