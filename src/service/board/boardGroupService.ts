@@ -11,7 +11,7 @@ async function findAll_Group(){
   }catch(err){
     logger.error({
       label:"[boardService.ts - findAll_Group]",
-      message: `\n\t└ err : `+ err
+      message: `\n\t└ err : ${err}`
     })
     return `Database Select ERR.`;
   }
@@ -26,7 +26,7 @@ async function create_Group(bodyData:boardGroupDto){
   }catch(err){
     logger.error({
       label:"[boardService.ts - create_Group]",
-      message: `\n\t└ err : `+ err
+      message: `\n\t└ err : ${err}`
     })
     return `Database Insert ERR.`;
   }
@@ -44,7 +44,7 @@ async function modify_Group(bodyData:boardGroupDto){
   }catch(err){
     logger.error({
       label:"[boardService.ts - create_Group]",
-      message: `\n\t└ err : `+ err
+      message: `\n\t└ err : ${err}`
     })
     return `Database Insert ERR.`;
   }
@@ -61,7 +61,7 @@ async function remove_Group(guest_id:number){
   }catch(err){
     logger.error({
       label:"[boardService.ts - remove_Group]",
-      message: `\n\t└ err : `+ err
+      message: `\n\t└ err : ${err}`
     })
     return `Database Insert ERR.`;
   }

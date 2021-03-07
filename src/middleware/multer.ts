@@ -8,8 +8,9 @@ var storage = multer.diskStorage({
       else{
         logger.error({
             label:"[Multer.ts - ETC]",
-            message: `\n\t└ err : `+ "fieldname이 image도 아니며, file도 아닙니다."
+            message: `\n\t└ err : fieldname이 image도 아니며, file도 아닙니다.(${file.fieldname})`
         })
+        return;
       }
     },
     filename: function (req : Request, file : any, cb : any) {

@@ -25,7 +25,7 @@ function boardGroupMain(req:Request, res:Response){
             (err: any)=>{
                 logger.error({
                     label:"[BoardController.ts - boardGroupMain]",
-                    message: `\n\t└ err : `+ err
+                    message: `\n\t└ err : ${err} `
                 })
                 res.json({"message" : err})
             }
@@ -49,7 +49,7 @@ function boardGroupCreate(req:Request, res:Response){
             (err: any)=>{
                 logger.error({
                     label:"[BoardController.ts - boardGroupCreate]",
-                    message: `\n\t└ err : `+ err
+                    message: `\n\t└ input data(form) : ${bodyData} \n\t└ err : ${err} `
                 })
                 res.json({"message" : err})
             }
@@ -74,7 +74,7 @@ function boardGroupModify(req:Request, res:Response){
             (err: any)=>{
                 logger.error({
                     label:"[BoardController.ts - boardGroupModify]",
-                    message: `\n\t└ err : `+ err
+                    message: `\n\t└ input data(form) : ${bodyData} \n\t└ err : ${err} `
                 })
                 res.json({"message" : err})
             }
@@ -102,7 +102,7 @@ function boardGroupRemove(req:Request, res:Response){
             (err: any)=>{
                 logger.error({
                     label:"[BoardController.ts - boardGroupModify]",
-                    message: `\n\t└ err : `+ err
+                    message: `\n\t└ input data(guest_id) : ${guest_id} \n\t└ err : ${err} `
                 })
                 res.json({"message" : err})
             }

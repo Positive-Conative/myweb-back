@@ -11,7 +11,7 @@ async function create_Content(bodyData:boardContentDto){
   }catch(err){
     logger.error({
       label:"[boardContentService.ts - create_Content]",
-      message: `\n\t└ err : `+ err
+      message: `\n\t└ err : ${err}`
     })
     return `Database Insert ERR.`;
   }

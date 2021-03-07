@@ -26,7 +26,7 @@ function boardContentCreate(req:Request, res:Response){
             (err: any)=>{
                 logger.error({
                     label:"[BoardContentController.ts - create_Content]",
-                    message: `\n\t└ err : `+ err
+                    message: `\n\t└ input data(form) : ${bodyData} \n\t└ err : ${err} `
                 })
                 res.json({"message" : err})
             }
