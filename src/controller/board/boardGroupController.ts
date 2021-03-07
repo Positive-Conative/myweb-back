@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express'
-import * as boardService from "../../service/boardService";
+import * as boardService from "../../service/board/boardGroupService";
 import { logger } from "../../config/logger";
 import { boardGroupDto } from "../../interface/boardGroupDto";
 

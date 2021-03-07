@@ -26,7 +26,7 @@ var upload = require('../middleware/multer');
 //Board Content Create
 boardRouter.post(
     '/content/create', 
-    upload.fields([{name:'image', maxCount:1}, {name:'file', maxCount:1}]),
+    upload.fields([{name:'input_image', maxCount:1}, {name:'input_file', maxCount:1}]),
     boardContentController.boardContentCreate
 )
 

@@ -1,6 +1,6 @@
-import { boardGroupRepo } from "../model/repository/boardGroupRepo";
-import { boardGroupDto } from "../interface/boardGroupDto";
-import { logger } from "../config/logger";
+import { boardGroupRepo } from "../../model/repository/board/boardGroupRepo";
+import { boardGroupDto } from "../../interface/boardGroupDto";
+import { logger } from "../../config/logger";
 
 //Group 전체 출력
 async function findAll_Group(){

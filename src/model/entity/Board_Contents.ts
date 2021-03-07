@@ -15,7 +15,6 @@ export class Board_Contents{
         {nullable: false}
     )
     user: Users
-
     @ManyToOne(
         (type)=>Board_Groups,
         (board_groups)=>board_groups.board_contents,

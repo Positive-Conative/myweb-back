@@ -1,6 +1,6 @@
 import {EntityRepository, Repository, getRepository} from "typeorm";
-import {Board_Groups} from "../entity/Board_Groups";
-import { boardGroupDto } from "../../interface/boardGroupDto";
+import {Board_Groups} from "../../entity/Board_Groups";
+import { boardGroupDto } from "../../../interface/boardGroupDto";
 
 @EntityRepository(Board_Groups)
 export class boardGroupRepo extends Repository<Board_Groups> {

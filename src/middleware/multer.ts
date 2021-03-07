@@ -3,8 +3,8 @@ var multer = require('multer');
 
 var storage = multer.diskStorage({
     destination: function (req : Request, file : any, cb : any) {
-      if(file.fieldname == 'image') cb(null, 'src/public/upload/images')
-      else if(file.fieldname == 'file') cb(null, 'src/public/upload/files')
+      if(file.fieldname == 'input_image') cb(null, 'src/public/upload/images')
+      else if(file.fieldname == 'input_file') cb(null, 'src/public/upload/files')
       else{
         logger.error({
             label:"[Multer.ts - ETC]",

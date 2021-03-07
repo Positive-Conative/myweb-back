@@ -13,7 +13,7 @@ const logger = createLogger({
         new transports.Console({
             level: 'debug',
             format: format.combine(
-                format.label({ label: '[MyWeb Server]' }),
+                // format.label({ label: '[MyWeb Server]' }),
                 format.timestamp({
                     format: 'YYYY-MM-DD HH:mm:ss'
                 }),
