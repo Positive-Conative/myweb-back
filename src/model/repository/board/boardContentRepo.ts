@@ -6,12 +6,12 @@ import { Board_Contents } from "../../entity/Board_Contents";
 export class boardContentRepo extends Repository<Board_Contents> {
 
     insertContent(bodyData:boardContentDto) {
-        // return getRepository(Board_Contents).save(bodyData)
-        return getRepository(Board_Contents)
-            .createQueryBuilder("bc")
-            .insert()
-            .into(Board_Contents)
-            .values(bodyData)
-            .execute()
+        return getRepository(Board_Contents).save(bodyData)
+        // return getRepository(Board_Contents)
+        //     .createQueryBuilder("bc")
+        //     .insert()
+        //     .into(Board_Contents)
+        //     .values(bodyData)
+        //     .execute()
     }
 }

@@ -6,18 +6,20 @@ import { boardGroupDto } from "../../../interface/boardGroupDto";
 export class boardGroupRepo extends Repository<Board_Groups> {
        
     findAll() {
-        return getRepository(Board_Groups)
-            .createQueryBuilder("bg")
-            .getMany();
+        return getRepository(Board_Groups).find();
+        // return getRepository(Board_Groups)
+        //     .createQueryBuilder("bg")
+        //     .getMany();
     }
 
     insertGroup(bodyData:boardGroupDto) {
-        return getRepository(Board_Groups)
-            .createQueryBuilder()
-            .insert()
-            .into(Board_Groups)
-            .values(bodyData)
-            .execute()
+        return getRepository(Board_Groups).save(bodyData)
+        // return getRepository(Board_Groups)
+        //     .createQueryBuilder()
+        //     .insert()
+        //     .into(Board_Groups)
+        //     .values(bodyData)
+        //     .execute()
     }
 
     modifyGroup(bodyData:boardGroupDto) {
@@ -30,11 +32,12 @@ export class boardGroupRepo extends Repository<Board_Groups> {
     }
 
     removeGroup(group_id:number) {
-        return getRepository(Board_Groups)
-            .createQueryBuilder()
-            .delete()
-            .from(Board_Groups)
-            .where("group_id = :gid", {gid: group_id})
-            .execute()
+        return getRepository(Board_Groups).delete(group_id)
+        // return getRepository(Board_Groups)
+        //     .createQueryBuilder()
+        //     .delete()
+        //     .from(Board_Groups)
+        //     .where("group_id = :gid", {gid: group_id})
+        //     .execute()
     }
 }

@@ -38,8 +38,9 @@ async function modify_Group(bodyData:boardGroupDto){
   const bgr = new boardGroupRepo;
   try{
     var db_result = await bgr.modifyGroup(bodyData)
-    if(db_result.raw.affectedRows) return "성공적으로 수정되었습니다.";
-    else return "수정된 내역이 없습니다.";
+    return db_result
+    // if(db_result.raw.affectedRows) return "성공적으로 수정되었습니다.";
+    // else return "수정된 내역이 없습니다.";
   }catch(err){
     logger.error({
       label:"[boardService.ts - create_Group]",
