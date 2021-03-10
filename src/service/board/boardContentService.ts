@@ -18,6 +18,22 @@ async function create_Content(bodyData:boardContentDto){
   // console.log(timber.user.email)
 }
 
+//Content Main
+async function findAll_Content(){
+  const bgr = new boardContentRepo;
+  try{
+    return await bgr.findAll()
+    // return "성공적으로 추가되었습니다.";
+  }catch(err){
+    logger.error({
+      label:"[boardContentService.ts - create_Content]",
+      message: `\n\t└ err : ${err}`
+    })
+    return `Database Insert ERR.`;
+  }
+  // console.log(timber.user.email)
+}
 export {
-  create_Content
+  create_Content,
+  findAll_Content
 }

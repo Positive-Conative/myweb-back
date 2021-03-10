@@ -32,7 +32,7 @@ function boardGroupMain(req:Request, res:Response){
         )//end catch
 }
 
-//Insert Page(데이터 추가)
+//Create Page(데이터 추가)
 function boardGroupCreate(req:Request, res:Response){
     let bodyData : boardGroupDto ={
         "name":req.body.name,

@@ -6,8 +6,7 @@ import { logger } from "../../config/logger";
 async function findAll_Group(){
   const bgr = new boardGroupRepo;
   try{
-    const db_data = await bgr.findAll()
-    return db_data;
+    return await bgr.findAll()
   }catch(err){
     logger.error({
       label:"[boardService.ts - findAll_Group]",
@@ -37,8 +36,7 @@ async function create_Group(bodyData:boardGroupDto){
 async function modify_Group(bodyData:boardGroupDto){
   const bgr = new boardGroupRepo;
   try{
-    var db_result = await bgr.modifyGroup(bodyData)
-    return db_result
+    return await bgr.modifyGroup(bodyData)
     // if(db_result.raw.affectedRows) return "성공적으로 수정되었습니다.";
     // else return "수정된 내역이 없습니다.";
   }catch(err){

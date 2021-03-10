@@ -30,7 +30,8 @@ app.use("/", indexRouter);
 
 app.use("/intro", introduceRouter);
 
-app.use("/board", boardRouter);
+// URL : /board/images/sky-690293_1920.jpg
+app.use("/board", boardRouter, express.static('src/public/upload'));
 
 app.use("/guestbook", guestBookRouter);
 
